@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tele Prémio – Participe Gratuitamente e Ganhe Até 150.000 MT</title>
+  <meta name="description"
+    content="Registe-se gratuitamente e concorra a prémios incríveis até 150.000 MT no sorteio oficial Tele Prémio." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Facebook Pixel -->
+  <script>
+    !function (f, b, e, v, n, t, s) {
+      if (f.fbq) return; n = f.fbq = function () {
+        n.callMethod ? n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+      };
+      if (!f._fbq) f._fbq = n; n.push = n; n.loaded = !0; n.version = '2.0';
+      n.queue = []; t = b.createElement(e); t.async = !0;
+      t.src = v; s = b.getElementsByTagName(e)[0];
+      s.parentNode.insertBefore(t, s)
+    }(window, document, 'script',
+      'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '1284381770469174');
+    fbq('track', 'PageView');
+  </script>
+  <noscript>
+    <img height="1" width="1" style="display:none"
+      src="https://www.facebook.com/tr?id=1284381770469174&ev=PageView&noscript=1" />
+  </noscript>
+  <!-- End Facebook Pixel -->
+</head>
+
+<body>
+
+  <canvas id="confetti-canvas"></canvas>
+
+  <!-- ================================
+     STEP 1 – HERO / REGISTO
+================================ -->
+  <section id="step1" class="step active">
+    <nav class="navbar" role="navigation" aria-label="Menu principal">
+      <a href="#" class="logo" aria-label="Tele Prémio">
+        <img src="logoTelepremio.png" alt="Tele Prémio" class="logo-img" />
+      </a>
+
+      <ul class="nav-links" id="desktop-nav">
+        <li><a href="#como-jogar">Como jogar</a></li>
+        <li><a href="#contacte-nos">Contacte-nos</a></li>
+        <li><button class="btn-participar" onclick="goToStep(1)">Participar</button></li>
+      </ul>
+
+      <button class="hamburger" id="hamburger-btn" aria-label="Abrir menu" aria-expanded="false" onclick="toggleMenu()">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+
+    <div class="mobile-menu" id="mobile-menu">
+      <a href="#como-jogar" onclick="closeMenu()">Como jogar</a>
+      <a href="#contacte-nos" onclick="closeMenu()">Contacte-nos</a>
+      <a href="#" onclick="goToStep(1); closeMenu();">Participar</a>
+    </div>
+
+    <div class="hero-body">
+      <div class="badge-official">SORTEIO OFICIAL</div>
+      <h1 class="hero-title">
+        Participe <span class="highlight">Gratuitamente</span><br>e Ganhe Até
+      </h1>
+      <div class="hero-amount">150.000 MT</div>
+      <p class="hero-sub">Faça o seu registo e tente a sua sorte. Leva apenas 30 segundos!</p>
+
+      <div class="reg-card">
+        <div class="reg-card-header">
+          <span class="reg-card-title">Registo Gratuito</span>
+          <span class="reg-card-badge">A DECORRER</span>
+        </div>
+
+        <form id="registration-form" onsubmit="submitRegistration(event)">
+          <div class="form-group">
+            <label class="form-label" for="nome">
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path
+                  d="M12 12c2.7 0 4.8-2.1 4.8-4.8S14.7 2.4 12 2.4 7.2 4.5 7.2 7.2 9.3 12 12 12zm0 2.4c-3.2 0-9.6 1.6-9.6 4.8v2.4h19.2v-2.4c0-3.2-6.4-4.8-9.6-4.8z" />
+              </svg>
+              Nome Completo
+            </label>
+            <input type="text" id="nome" class="form-input" placeholder="Digite o seu nome" required />
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="celular">
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path
+                  d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z" />
+              </svg>
+              Número de Celular
+            </label>
+            <input type="tel" id="celular" class="form-input" placeholder="Ex: 84 123 4567" required />
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="provincia">
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path
+                  d="M12 2C8.1 2 5 5.1 5 9c0 5.2 7 13 7 13s7-7.8 7-13c0-3.9-3.1-7-7-7zm0 9.5c-1.4 0-2.5-1.1-2.5-2.5S10.6 6.5 12 6.5s2.5 1.1 2.5 2.5S13.4 11.5 12 11.5z" />
+              </svg>
+              Província
+            </label>
+            <select id="provincia" class="form-input form-select" required>
+              <option value="" disabled selected>Selecione a sua província</option>
+              <option>Maputo</option>
+              <option>Gaza</option>
+              <option>Inhambane</option>
+              <option>Sofala</option>
+              <option>Manica</option>
+              <option>Tete</option>
+              <option>Zambézia</option>
+              <option>Nampula</option>
+              <option>Niassa</option>
+              <option>Cabo Delgado</option>
+            </select>
+          </div>
+
+          <button type="submit" class="btn-primary" id="btn-register">
+            QUERO PARTICIPAR AGORA
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6z" />
+            </svg>
+          </button>
+        </form>
+
+        <p class="reg-terms">Ao registar-se, concorda com os nossos termos e condições.</p>
+      </div>
+    </div>
+
+    <footer class="hero-footer-bar">
+      <div class="footer-item">
+        <svg viewBox="0 0 24 24" fill="currentColor">
+          <path
+            d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" />
+        </svg>
+        Registo Gratuito
+      </div>
+      <div class="footer-item">
+        <svg viewBox="0 0 24 24" fill="currentColor">
+          <path
+            d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3.1-9H8.9V6c0-1.71 1.39-3.1 3.1-3.1 1.71 0 3.1 1.39 3.1 3.1v2z" />
+        </svg>
+        100% Seguro
+      </div>
+      <div class="footer-item">
+        <svg viewBox="0 0 24 24" fill="currentColor">
+          <path
+            d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 4l5 2.18V11c0 3.5-2.33 6.79-5 7.93-2.67-1.14-5-4.43-5-7.93V7.18L12 5z" />
+        </svg>
+        Prémios Reais
+      </div>
+    </footer>
+  </section>
+
+
+  <!-- ================================
+     STEP 2 – PRIZES
+================================ -->
+  <section id="step2" class="step">
+    <nav class="navbar" role="navigation">
+    <a href="#" class="logo" aria-label="Tele Prémio">
+        <img src="logoTelepremio.png" alt="Tele Prémio" class="logo-img" />
+      </a>
+      <ul class="nav-links">
+        <li><a href="#">Como jogar</a></li>
+        <li><a href="#">Contacte-nos</a></li>
+        <li><button class="btn-participar" onclick="goToStep(1)">Participar</button></li>
+      </ul>
+      <button class="hamburger" aria-label="Abrir menu" aria-expanded="false" onclick="toggleMenu()">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+
+    <div class="page-body">
+      <h1 class="page-title">Pode Ganhar os Seguintes Prémios</h1>
+      <p class="page-subtitle">Participe agora e concorra a prémios incríveis!</p>
+
+      <div class="prize-list">
+        <div class="prize-item">
+          <div class="prize-icon prize-icon-1">🏆</div>
+          <span class="prize-name">Primeiro prémio</span>
+          <span class="prize-amount">150.000 MT</span>
+        </div>
+        <div class="prize-item">
+          <div class="prize-icon prize-icon-2">🥈</div>
+          <span class="prize-name">Segundo prémio</span>
+          <span class="prize-amount">100.000 MT</span>
+        </div>
+        <div class="prize-item">
+          <div class="prize-icon prize-icon-3">🥉</div>
+          <span class="prize-name">Terceiro prémio</span>
+          <span class="prize-amount">50.000 MT</span>
+        </div>
+        <div class="prize-item">
+          <div class="prize-icon prize-icon-4">🎖️</div>
+          <span class="prize-name">Quarto prémio</span>
+          <span class="prize-amount">25.000 MT</span>
+        </div>
+        <div class="prize-item">
+          <div class="prize-icon prize-icon-5">🎗️</div>
+          <span class="prize-name">Quinto prémio</span>
+          <span class="prize-amount">10.000 MT</span>
+        </div>
+      </div>
+
+      <button class="btn-primary full" onclick="goToStep(3)">
+        PARTICIPAR DO SORTEIO
+      </button>
+    </div>
+  </section>
+
+
+  <!-- ================================
+     STEP 3 – LUCKY NUMBER
+================================ -->
+  <section id="step3" class="step">
+    <nav class="navbar" role="navigation">
+       <a href="#" class="logo" aria-label="Tele Prémio">
+        <img src="logoTelepremio.png" alt="Tele Prémio" class="logo-img" />
+      </a>
+      <ul class="nav-links">
+        <li><a href="#">Como jogar</a></li>
+        <li><a href="#">Contacte-nos</a></li>
+        <li><button class="btn-participar" onclick="goToStep(1)">Participar</button></li>
+      </ul>
+      <button class="hamburger" aria-label="Abrir menu" aria-expanded="false" onclick="toggleMenu()">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+
+    <div class="page-body">
+      <div class="lucky-card">
+        <h1 class="page-title" style="text-transform:none;letter-spacing:0;">Escolha o seu Número da Sorte</h1>
+        <p class="page-subtitle">Selecione um número de 1 a 1000 para participar do sorteio</p>
+
+        <div class="number-label">
+          <span style="font-size:16px;color:var(--orange);">#</span>
+          Número da Sorte (1 – 1000)
+        </div>
+        <input type="number" id="lucky-number-input" class="number-input" min="1" max="1000"
+          placeholder="Digite o seu número" aria-label="Número da sorte" />
+        <p class="number-hint">O seu número será usado no sorteio electrónico</p>
+
+        <button class="btn-primary" onclick="confirmLuckyNumber()">Confirmar Número</button>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ================================
+     STEP 4 – SORTEIO EM ANDAMENTO
+================================ -->
+  <section id="step4" class="step">
+    <nav class="navbar" role="navigation">
+      <a href="#" class="logo" aria-label="Tele Prémio">
+        <img src="logoTelepremio.png" alt="Tele Prémio" class="logo-img" />
+      </a>
+      <ul class="nav-links">
+        <li><a href="#">Como jogar</a></li>
+        <li><a href="#">Contacte-nos</a></li>
+        <li><button class="btn-participar" onclick="goToStep(1)">Participar</button></li>
+      </ul>
+      <button class="hamburger" aria-label="Abrir menu" aria-expanded="false" onclick="toggleMenu()">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+
+    <div class="page-body">
+      <div class="drawing-card">
+        <div class="sparkle-circle">
+          <div class="sparkle-icon">✨</div>
+        </div>
+        <h1 class="drawing-title">🎰 SORTEANDO...</h1>
+        <p class="drawing-sub">O número vencedor está sendo sorteado!</p>
+        
+        <div class="digit-boxes">
+          <div class="digit-box" id="digit-1">0</div>
+          <div class="digit-box" id="digit-2">0</div>
+          <div class="digit-box" id="digit-3">0</div>
+        </div>
+
+        <div class="drawing-status">
+          <span class="spinner-icon">↻</span>
+          <span id="drawing-status-text">Conectando ao sistema de sorteio...</span>
+        </div>
+
+        <div class="progress-bar-container">
+          <div class="progress-bar-fill" id="drawing-progress"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ================================
+     STEP 5 – WINNER
+================================ -->
+  <section id="step5" class="step">
+    <nav class="navbar" role="navigation" style="background:rgba(0,0,0,0.12);box-shadow:none;">
+   <a href="#" class="logo" aria-label="Tele Prémio">
+        <img src="logoTelepremio.png" alt="Tele Prémio" class="logo-img" />
+      </a>
+      <ul class="nav-links">
+        <li><a href="#">Como jogar</a></li>
+        <li><a href="#">Contacte-nos</a></li>
+        <li><button class="btn-participar" onclick="goToStep(1)">Participar</button></li>
+      </ul>
+      <button class="hamburger" aria-label="Abrir menu" aria-expanded="false" onclick="toggleMenu()">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+
+    <div class="page-body">
+      <div class="winner-card">
+        <div class="trophy-icon">🏆</div>
+        <h1 class="winner-name">Parabéns <span id="winner-display-name">Campeão</span>!</h1>
+
+        <div class="prize-won-box">
+          <p class="prize-won-label">Você ganhou o</p>
+          <p class="prize-won-name" id="prize-won-name">Quarto Prémio</p>
+          <p class="prize-won-amount" id="prize-won-amount">25.000 MT</p>
+          <p class="prize-won-game">no sorteio do TELE PRÉMIO!</p>
+        </div>
+
+        <div class="lucky-number-box">
+          <p class="lucky-number-label">O seu número da sorte foi:</p>
+          <p class="lucky-number-value" id="winner-lucky-num">2</p>
+        </div>
+
+        <button class="btn-primary winner-btn" onclick="receberPremio()">
+          RECEBER O MEU PRÉMIO
+        </button>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ================================
+     STEP LOSE – NÃO FOI DESTA VEZ
+================================ -->
+  <section id="step-lose" class="step">
+    <nav class="navbar" role="navigation">
+    <a href="#" class="logo" aria-label="Tele Prémio">
+        <img src="logoTelepremio.png" alt="Tele Prémio" class="logo-img" />
+      </a>
+      <ul class="nav-links">
+        <li><a href="#">Como jogar</a></li>
+        <li><a href="#">Contacte-nos</a></li>
+        <li><button class="btn-participar" onclick="goToStep(1)">Participar</button></li>
+      </ul>
+      <button class="hamburger" aria-label="Abrir menu" aria-expanded="false" onclick="toggleMenu()">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+
+    <div class="page-body">
+      <div class="lose-card">
+        <!-- X icon -->
+        <div class="lose-icon-wrap">
+          <svg width="44" height="44" viewBox="0 0 24 24" fill="none">
+            <circle cx="12" cy="12" r="11" stroke="#E74C3C" stroke-width="2" />
+            <path d="M8 8l8 8M16 8l-8 8" stroke="#E74C3C" stroke-width="2.5" stroke-linecap="round" />
+          </svg>
+        </div>
+
+        <h1 class="lose-title">
+          Não foi desta vez, <span id="lose-name">AMIGO</span>!
+        </h1>
+        <p class="lose-sub">O seu número não foi sorteado nesta tentativa.</p>
+
+        <div class="lose-number-box">
+          <p class="lose-box-label">Número sorteado desta vez:</p>
+          <p class="lose-drawn-num" id="lose-drawn-num">24</p>
+          <p class="lose-your-num">O seu número era <strong id="lose-your-num-val">2</strong></p>
+        </div>
+
+        <p class="lose-encourage">
+          Não desanimes! Tenta novamente — a sorte pode estar do teu lado!
+        </p>
+
+        <button class="btn-primary" style="background:#F5A623;" onclick="tryAgain()">
+          TENTAR NOVAMENTE
+        </button>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ================================
+     STEP 6 – VIDEO GATE
+================================ -->
+  <section id="step6" class="step">
+    <nav class="navbar" role="navigation">
+      <a href="#" class="logo" aria-label="Tele Prémio">
+        <img src="logoTelepremio.png" alt="Tele Prémio" class="logo-img" />
+      </a>
+      <ul class="nav-links">
+        <li><a href="#">Como jogar</a></li>
+        <li><a href="#">Contacte-nos</a></li>
+        <li><button class="btn-participar" onclick="goToStep(1)">Participar</button></li>
+      </ul>
+      <button class="hamburger" aria-label="Abrir menu" aria-expanded="false" onclick="toggleMenu()">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+
+    <div class="page-body">
+      <div class="video-gate-card">
+        <div class="camera-icon-wrap">📹</div>
+        <h1 class="vg-title">
+          Antes de Receber os seus<br>
+          <span id="vg-prize-amount">25.000 MT</span>
+        </h1>
+        <p class="vg-sub">
+          É necessário assistir a um vídeo importante sobre como<br>
+          receber o seu prémio com segurança.
+        </p>
+        <button class="btn-primary" onclick="goToVideoPage()">
+          ▶ VER VÍDEO AGORA
+        </button>
+        <p class="vg-time-note">Tempo estimado: 2 minutos</p>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ================================
+     STEP 7 – VIDEO PLAYER
+================================ -->
+  <section id="step7" class="step">
+    <nav class="navbar" role="navigation">
+      <a href="#" class="logo" aria-label="Tele Prémio">
+        <img src="logoTelepremio.png" alt="Tele Prémio" class="logo-img" />
+      </a>
+      <ul class="nav-links">
+        <li><a href="#">Como jogar</a></li>
+        <li><a href="#">Contacte-nos</a></li>
+        <li><button class="btn-participar" onclick="goToStep(1)">Participar</button></li>
+      </ul>
+      <button class="hamburger" aria-label="Abrir menu" aria-expanded="false" onclick="toggleMenu()">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+
+    <div class="page-body">
+      <!-- Top bar -->
+      <div class="video-top-bar">
+        <p class="vt-small">ASSISTA ATÉ AO FINAL PARA SABER COMO</p>
+        <p class="vt-big">Resgatar os seus Prémios Rapidamente</p>
+        <div>
+          <span class="live-badge">
+            <span class="live-dot"></span> AO VIVO
+          </span>
+          <span class="live-viewers">– 2.847 a assistir agora</span>
+        </div>
+      </div>
+
+      <!-- Video Player (VSL real) -->
+      <div class="video-wrapper" style="position:relative;">
+        <div id="unmute-overlay" class="unmute-overlay" onclick="unmuteAndPlay()">
+          <h3>Seu vídeo já começou</h3>
+          <svg viewBox="0 0 24 24">
+            <path
+              d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v2.21l2.45 2.45c.03-.2.05-.41.05-.63zm2.5 0c0 .94-.2 1.82-.54 2.64l1.51 1.51C20.63 14.91 21 13.5 21 12c0-4.28-2.99-7.86-7-8.77v2.06c2.89.86 5 3.54 5 6.71zM4.27 3L3 4.27 7.73 9H3v6h4l5 5v-6.73l4.25 4.25c-.67.52-1.42.93-2.25 1.18v2.06c1.38-.31 2.63-.95 3.69-1.81L19.73 21 21 19.73l-9-9L4.27 3zM12 4L9.91 6.09 12 8.18V4z" />
+          </svg>
+          <p>Clique para ouvir</p>
+        </div>
+        <video id="vsl-video" src="https://res.cloudinary.com/dsxkufuew/video/upload/v1786009936/vsl_xu2c2t.mp4"
+          playsinline controlsList="nodownload nofullscreen"
+          style="width:100%;display:block;background:#000;max-height:420px;cursor:pointer;" preload="metadata"
+          onclick="unmuteAndPlay()"></video>
+      </div>
+
+      <!-- Verify Button (hidden until timer fires) -->
+      <div class="verify-btn-wrap">
+        <button class="btn-verify" id="btn-verify" onclick="goToCheckout()">
+          ✔ FAZER A VERIFICAÇÃO
+        </button>
+        <p class="verify-timer-msg" id="verify-timer-msg">O botão aparecerá quando o vídeo terminar…</p>
+      </div>
+
+      <!-- Comments -->
+      <div class="comments-section">
+        <p class="comments-title">Comentários</p>
+        <p class="comments-sub">Depoimentos de quem já recebeu os seus prémios</p>
+
+        <div class="comment-item">
+          <img class="comment-avatar"
+            src="https://images.pexels.com/photos/6626903/pexels-photo-6626903.jpeg?auto=compress&cs=tinysrgb&w=100&h=100&fit=crop&crop=face"
+            alt="User">
+          <div class="comment-body">
+            <div class="comment-box">
+              <div class="comment-name">Maria João</div>
+              <div class="comment-text">Recebi 8.500MT 😍🔒 Já confirmei no M-Pesa. Caiu mesmo!</div>
+            </div>
+            <div class="comment-actions">
+              <span class="comment-time">22h</span>
+              <span>Like</span>
+              <span>Reply</span>
+              <span>Downvote</span>
+              <div class="comment-likes">
+                <span style="color:#1877F2;font-size:14px;margin-right:2px;">👍</span> 8
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="comment-item">
+          <img class="comment-avatar"
+            src="https://images.pexels.com/photos/7562313/pexels-photo-7562313.jpeg?auto=compress&cs=tinysrgb&w=100&h=100&fit=crop&crop=face"
+            alt="User">
+          <div class="comment-body">
+            <div class="comment-box">
+              <div class="comment-name">Carlos Machava</div>
+              <div class="comment-text">Pensei que era fraude mas caiu mesmo no E-Mola! 🙏🏾</div>
+            </div>
+            <div class="comment-actions">
+              <span class="comment-time">22h</span>
+              <span>Like</span>
+              <span>Reply</span>
+              <span>Downvote</span>
+              <div class="comment-likes">
+                <span style="color:#1877F2;font-size:14px;margin-right:2px;">👍</span> 5
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="comment-item">
+          <img class="comment-avatar"
+            src="https://images.pexels.com/photos/7869238/pexels-photo-7869238.jpeg?auto=compress&cs=tinysrgb&w=100&h=100&fit=crop&crop=face"
+            alt="User">
+          <div class="comment-body">
+            <div class="comment-box">
+              <div class="comment-name">Ana Tembe</div>
+              <div class="comment-text">Recebi o Quinto Prémio. Muito obrigada Tele Prémio! ❤️</div>
+            </div>
+            <div class="comment-actions">
+              <span class="comment-time">2h</span>
+              <span>Like</span>
+              <span>Reply</span>
+              <span>Downvote</span>
+              <div class="comment-likes">
+                <span style="color:#1877F2;font-size:14px;margin-right:2px;">👍</span> 2
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="comment-item">
+          <img class="comment-avatar"
+            src="https://images.pexels.com/photos/6147276/pexels-photo-6147276.jpeg?auto=compress&cs=tinysrgb&w=100&h=100&fit=crop&crop=face"
+            alt="User">
+          <div class="comment-body">
+            <div class="comment-box">
+              <div class="comment-name">José Cumbe</div>
+              <div class="comment-text">25.000MT no M-Pesa! Nunca pensei ganhar. Deus é grande! 🎉</div>
+            </div>
+            <div class="comment-actions">
+              <span class="comment-time">1d</span>
+              <span>Like</span>
+              <span>Reply</span>
+              <span>Downvote</span>
+              <div class="comment-likes">
+                <span style="color:#1877F2;font-size:14px;margin-right:2px;">👍</span> 4
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="comment-item">
+          <img class="comment-avatar"
+            src="https://images.pexels.com/photos/7275385/pexels-photo-7275385.jpeg?auto=compress&cs=tinysrgb&w=100&h=100&fit=crop&crop=face"
+            alt="User">
+          <div class="comment-body">
+            <div class="comment-box">
+              <div class="comment-name">Lúcia Mondlane</div>
+              <div class="comment-text">Realmente funciona! Recomendo a todos tentarem a sorte.</div>
+            </div>
+            <div class="comment-actions">
+              <span class="comment-time">5h</span>
+              <span>Like</span>
+              <span>Reply</span>
+              <span>Downvote</span>
+              <div class="comment-likes">
+                <span style="color:#1877F2;font-size:14px;margin-right:2px;">👍</span> 4
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="comment-item">
+          <img class="comment-avatar"
+            src="https://images.pexels.com/photos/6626882/pexels-photo-6626882.jpeg?auto=compress&cs=tinysrgb&w=100&h=100&fit=crop&crop=face"
+            alt="User">
+          <div class="comment-body">
+            <div class="comment-box">
+              <div class="comment-name">Rui Silva</div>
+              <div class="comment-text">O meu irmão ganhou e avisou-me, já estou a participar!</div>
+            </div>
+            <div class="comment-actions">
+              <span class="comment-time">1h</span>
+              <span>Like</span>
+              <span>Reply</span>
+              <span>Downvote</span>
+              <div class="comment-likes">
+                <span style="color:#1877F2;font-size:14px;margin-right:2px;">👍</span> 1
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ================================
+     STEP 8 – FORMA DE PAGAMENTO
+================================ -->
+  <section id="step8" class="step">
+    <nav class="navbar" role="navigation">
+      <a href="#" class="logo" aria-label="Tele Prémio">
+        <img src="logoTelepremio.png" alt="Tele Prémio" class="logo-img" />
+      </a>
+      <ul class="nav-links">
+        <li><a href="#">Como jogar</a></li>
+        <li><a href="#">Contacte-nos</a></li>
+        <li><button class="btn-participar" onclick="goToStep(1)">Participar</button></li>
+      </ul>
+      <button class="hamburger" aria-label="Abrir menu" aria-expanded="false" onclick="toggleMenu()">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+
+    <div class="page-body">
+      <div class="payment-card">
+        <h1 class="payment-title">Forma de Pagamento</h1>
+        <p class="payment-sub" id="payment-sub-text">Escolha como deseja receber o seu prémio de 25.000 MT</p>
+
+        <p class="pm-label">Método de Pagamento</p>
+        <div class="pm-options">
+          <div class="pm-option selected" id="pm-mpesa" onclick="selectPayment('mpesa')">
+            <div class="pm-radio"></div>
+            <div style="display:flex; flex-direction:row; align-items:center; gap: 5px;">
+              <img src="mpesaLogo.png" alt="M-Pesa" style="height: 30px; margin-left: 8px;" />
+            <span style="margin-left: 8px;">m-pesa</span>
+            </div>
+          </div>
+          <div class="pm-option" id="pm-emola" onclick="selectPayment('emola')">
+            <div class="pm-radio"></div>
+            <div style="display:flex; flex-direction:row; align-items:center; gap: 5px;">
+              <img src="emola-logo.png" alt="E-Mola" style="height: 30px; margin-left: 8px;" />
+            <span style="margin-left: 8px;">e-mola</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" id="pm-number-label">Número de M-Pesa</label>
+          <input type="tel" id="pm-number-input" class="form-input" placeholder="Ex: 84 123 4567" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Nome do Titular</label>
+          <input type="text" id="pm-name-input" class="form-input" placeholder="Nome completo do titular" />
+        </div>
+
+        <button class="btn-primary" id="btn-receber" onclick="goToVideoGate()">
+          RECEBER OS MEUS <span id="btn-prize-amt">25.000 MT</span>
+        </button>
+      </div>
+    </div>
+  </section>
+
+
+
+  <script src="script.js"></script>
+</body>
+
+</html>
