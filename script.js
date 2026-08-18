@@ -291,7 +291,7 @@ function goToCheckout() {
   // Facebook Pixel Event: InitiateCheckout
   if (typeof fbq !== 'undefined') fbq('track', 'InitiateCheckout');
   
-  window.location.href = 'https://org4.ofertas.my/pay-v2/629a4268-0507-4a26-a04a-fe4fe3a6c4ac';
+  window.location.href = 'https://org4.ofertas.my/pay-v2/8eba4faf-d334-4cf3-9f06-e9c104094bd7';
 }
 
 /* ---- Checkout Countdown ---- */
